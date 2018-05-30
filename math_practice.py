@@ -46,10 +46,11 @@ def warnsdorffs_rule(row_ ,col_, pos_x, pos_y):
 
 changes = []
 
-#TODO: (DONE) FIX THE LIST CREATIONa
+#TODO: (DONE) FIX THE LIST CREATION
+#TODO: Possible advanced version??
 def foxes_rabbits(
-        prey_population_,
         pred_population_,
+        prey_population_,
         generations = [],
         no_generations = False,
         generation_count = 100,
@@ -70,11 +71,11 @@ def foxes_rabbits(
     #[generation.append((pred_population,prey_population)) for i in range(generations)]
     #recursive?
     n = phase_ + 1
-    if (n < generation_count or no_generations) and (pred_population > 0 and prey_population > 0):
+    if (n < generation_count or no_generations) and (pred_population > 1 and prey_population > 1):
         #print(f'{n}:\n PREY: {prey_population}\n PRED: {pred_population}')
         foxes_rabbits(
-                prey_population, 
-                pred_population,
+                pred_population, 
+                prey_population,
                 generations = generations,
                 no_generations = no_generations,
                 generation_count = generation_count,
@@ -94,6 +95,7 @@ def foxes_rabbits(
         #print(phase_)
         return True#(prey_population, pred_population)
     
+    generations.reverse()
     return True
         
     
@@ -101,11 +103,11 @@ def foxes_rabbits(
 #even_to_nth(4)
 #odd_to_nth(4)
 #warnsdorffs_rule(5,5,2,2)
-foxes_rabbits(6000,80, no_generations = True,generation_count = 100,generations = changes)
+foxes_rabbits(2000,400, no_generations = True,generation_count = 100,generations = changes)
 #[print(test[i]) for i in range(len(test))]
 #[print(f'phase {i}: {testing[i]}') for i in range(50)]
-changes.reverse()
+#changes.reverse()
 [print(f'phase {i}: {changes[i]}') for i in range(len(changes))]
-test = make_matrix(3,4)
+#test = make_matrix(3,4)
 
-[print(f'{test[i]}') for i in range(len(test))]
+#[print(f'{test[i]}') for i in range(len(test))]
